@@ -1,1 +1,147 @@
-Get-Clipboard | Set-Content -Path .\index.html -Encoding UTF8
+@'
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Emmanuel — Portfolio</title>
+  <meta name="description" content="Portfolio de Emmanuel — Développeur full-stack & sécurité" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{--accent:#0ea5b7}
+  </style>
+</head>
+<body class="antialiased bg-gray-50 text-gray-800">
+  <header class="bg-white/60 backdrop-blur sticky top-0 z-40 shadow-sm">
+    <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="#hero" class="text-xl font-semibold">Emmanuel</a>
+      <nav class="space-x-4 text-sm">
+        <a href="#about" class="hover:underline">À propos</a>
+        <a href="#skills" class="hover:underline">Compétences</a>
+        <a href="#projects" class="hover:underline">Projets</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-5xl mx-auto px-6 py-12">
+    <section id="hero" class="grid gap-8 lg:grid-cols-2 items-center">
+      <div>
+        <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">Emmanuel<br /><span class="text-slate-600 font-medium text-lg">Développeur full-stack & ingénieur sécurité</span></h1>
+        <p class="mt-6 text-lg text-gray-600">Je conçois des architectures robustes, j'automatise des scans réseau et j'analyse les vulnérabilités pour transformer des résultats techniques en actions concrètes.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="CV_stage_emmanuel.pdf" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border bg-white hover:bg-gray-50" rel="noopener">📄 Télécharger CV</a>
+          <a href="#contact" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-emerald-500 text-white" rel="noopener">✉️ Contactez-moi</a>
+        </div>
+      </div>
+      <div class="bg-gradient-to-tr from-emerald-50 to-white p-6 rounded-xl shadow-sm">
+        <ul class="space-y-3 text-sm">
+          <li><strong>Langages :</strong> C#, Java, Python, PHP (Laravel), JavaScript</li>
+          <li><strong>Frameworks & outils :</strong> .NET 9, ASP.NET, Docker, Celery, Nmap, Wazuh</li>
+          <li><strong>Cloud & messaging :</strong> Azure Event Hub, Service Bus, MySQL, Cosmos DB</li>
+          <li><strong>ML & streaming :</strong> EFDT, river / skmultiflow</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="about" class="mt-12">
+      <h2 class="text-2xl font-semibold">À propos de moi</h2>
+      <p class="mt-4 text-gray-600">Développeur full-stack et passionné de cybersécurité, j'aime automatiser l'inspection des réseaux et construire des pipelines d'événements fiables. J'ai travaillé sur des intégrations Laravel ↔ Flask pour lancer des scans Nmap, ainsi que sur des architectures évènementielles avec Azure Event Hub.</p>
+    </section>
+
+    <section id="skills" class="mt-10">
+      <h2 class="text-2xl font-semibold">Compétences techniques</h2>
+      <div class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-medium">Développement</h3>
+          <p class="text-sm text-gray-600 mt-2">C#, .NET, ASP.NET Minimal APIs, Java, Laravel (PHP), JavaScript</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-medium">Sécurité & Réseaux</h3>
+          <p class="text-sm text-gray-600 mt-2">Nmap, Nessus, Wazuh, Hydra, analyse CVE, détection d'intrusion</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-medium">DevOps & Cloud</h3>
+          <p class="text-sm text-gray-600 mt-2">Docker, Docker Compose, Azure Event Hub, Service Bus, Celery</p>
+        </div>
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-medium">Data & ML</h3>
+          <p class="text-sm text-gray-600 mt-2">river / skmultiflow, EFDT, pipelines d'analyse</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="mt-12">
+      <h2 class="text-2xl font-semibold">Projets sélectionnés</h2>
+      <div class="mt-6 grid gap-6 sm:grid-cols-2">
+        <article class="p-4 bg-white rounded-lg shadow hover:scale-[1.01] transition-transform">
+          <h3 class="font-semibold">Nmap + LLaMA — Scan & Analyse</h3>
+          <p class="mt-2 text-sm text-gray-600">Intégration Laravel ↔ Flask pour lancer des scans Nmap sur un sous-réseau, traitement avec LLaMA (Ollama local) pour enrichir les résultats, stockage MySQL et UI interactive.</p>
+          <p class="mt-3 text-xs text-gray-500">Stack : Laravel, Flask, Nmap, Ollama (Llama2), Celery, MySQL</p>
+        </article>
+
+        <article class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-semibold">Worker_DB & EventHub (Azure)</h3>
+          <p class="mt-2 text-sm text-gray-600">Refonte d'une architecture micro-services : Event Hub centralisé et <code>Worker_DB</code> unique responsable des écritures en base pour garantir cohérence et ordre des événements.</p>
+          <p class="mt-3 text-xs text-gray-500">Stack : .NET Worker Services, Azure Event Hub, Docker Compose</p>
+        </article>
+
+        <article class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-semibold">Protocole RDO — Client/Serveur Java</h3>
+          <p class="mt-2 text-sm text-gray-600">Conception d'un protocole de transfert de fichiers sur TCP, gestion propre des exceptions, et affichage/lecture des fichiers sans métadonnées indésirables.</p>
+          <p class="mt-3 text-xs text-gray-500">Stack : Java, Sockets TCP</p>
+        </article>
+
+        <article class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-semibold">Wazuh & Nessus — Détection et reporting</h3>
+          <p class="mt-2 text-sm text-gray-600">Installation et configuration de Wazuh pour détecter des attaques SSH (Hydra) et analyse des alertes ; utilisation de Tenable Nessus pour l'inventaire des vulnérabilités.</p>
+          <p class="mt-3 text-xs text-gray-500">Stack : Wazuh, Nessus, Hydra</p>
+        </article>
+
+        <article class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-semibold">Machine Learning — EFDT & flux</h3>
+          <p class="mt-2 text-sm text-gray-600">Expérimentation avec EFDT, VFDT, CVFDT pour classification incrémentale sur jeux de données synthétiques et réels.</p>
+          <p class="mt-3 text-xs text-gray-500">Stack : Python, river, skmultiflow</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="mt-12">
+      <h2 class="text-2xl font-semibold">Contact</h2>
+      <div class="mt-4 grid sm:grid-cols-2 gap-6">
+        <div class="p-4 bg-white rounded-lg shadow">
+          <h3 class="font-medium">Me joindre</h3>
+          <p class="mt-2 text-sm text-gray-600">Email : <a href="mailto:email@example.com" class="text-sky-600" rel="noopener">email@example.com</a></p>
+          <p class="mt-1 text-sm text-gray-600">Téléphone : <span class="text-gray-800">+33 6 XX XX XX XX</span></p>
+          <p class="mt-3 text-sm text-gray-500">Remplacez ces informations par vos coordonnées réelles dans le fichier <code>index.html</code>.</p>
+        </div>
+        <form class="p-4 bg-white rounded-lg shadow" onsubmit="alert('Ce formulaire est un placeholder — configurez un endpoint ou remplacez par mailto.'); return false;">
+          <label class="block text-sm font-medium">Nom</label>
+          <input class="mt-2 w-full rounded-md border px-3 py-2" placeholder="Votre nom" />
+          <label class="block text-sm font-medium mt-3">Email</label>
+          <input class="mt-2 w-full rounded-md border px-3 py-2" placeholder="votre@email.com" />
+          <label class="block text-sm font-medium mt-3">Message</label>
+          <textarea class="mt-2 w-full rounded-md border px-3 py-2" rows="4" placeholder="Bonjour, ..."></textarea>
+          <div class="mt-4">
+            <button type="submit" class="px-4 py-2 rounded-md bg-emerald-500 text-white">Envoyer</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer class="mt-16 text-center text-sm text-gray-500">© Emmanuel — Portfolio • Généré automatiquement</footer>
+  </main>
+
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if(t) t.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+  </script>
+</body>
+</html>
+'@ | Set-Content -Path .\index.html -Encoding UTF8
